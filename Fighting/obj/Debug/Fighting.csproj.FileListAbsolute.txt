@@ -1,0 +1,6 @@
+C:\Users\darkd\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe.config
+C:\Users\darkd\source\repos\Fighting\Fighting\bin\Debug\Fighting.exe
+C:\Users\darkd\source\repos\Fighting\Fighting\bin\Debug\Fighting.pdb
+C:\Users\darkd\source\repos\Fighting\Fighting\obj\Debug\Fighting.csprojAssemblyReference.cache
+C:\Users\darkd\source\repos\Fighting\Fighting\obj\Debug\Fighting.exe
+C:\Users\darkd\source\repos\Fighting\Fighting\obj\Debug\Fighting.pdb
