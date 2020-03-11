@@ -1,53 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Fighting
 {
     class Program
     {
+        private static void Swap(ref IFighter a, ref IFighter b)
+        {
+            IFighter c = a; 
+            a = b; 
+            b = c;
+        }
+
+    
         static void Main(string[] args)
         {
 
-            TomFighter tom = new TomFighter();
-            FredFighter fred = new FredFighter();
+            IFighter tom = new TomFighter();
+            IFighter fred = new FredFighter();
 
             Console.WriteLine($"{tom.GetName()} start health: {tom.GetHealth()} \n{fred.GetName()} start health: {fred.GetHealth()} ");
             Console.WriteLine("Start!");
             while (true)
             {
                 Console.ReadKey();
-                int dammageTom = fred.GetDammageValue();
-                Console.WriteLine($"{tom.GetName()}'s dammage: {dammageTom}");
-                int b = tom.LowHealth(dammageTom);
-                if (b <= 0)
-                {
-                    Console.WriteLine($"{fred.GetName()} win!!!");
-                    break;
-                }
-                Console.WriteLine($"{tom.GetName()}'s health: {b}");
-
+                var c = Fight(tom, fred);
+                Swap(ref tom, ref fred);
                 Console.WriteLine();
-
-                Console.ReadKey();
-                int dammageFred = tom.GetDammageValue();
-                Console.WriteLine($"{fred.GetName()}'s dammage: {dammageFred}");
-                int a = fred.LowHealth(dammageFred);
-                if (a <= 0)
-                {
-                    Console.WriteLine($"{tom.GetName()} win!!!");
-                    break;
-                }
-                Console.WriteLine($"{fred.GetName()}'s health: {a}");
-                Console.WriteLine();
+                if (c)
+                break;
             }
-
-            Console.ReadLine();
-
         }
 
-
+        public static bool Fight(IFighter hitFighter, IFighter getFighter)
+        {
+            getFighter.LowHealth(hitFighter.GetDammageValue());
+            Console.WriteLine($"{getFighter.GetName()}'s dammage: {hitFighter.GetDammageValue()}");
+            if (getFighter.GetHealth() <= 0)
+            {
+                Console.WriteLine($"{hitFighter.GetName()} win!!!");
+                Console.ReadLine();
+            }
+            else
+                Console.WriteLine($"{getFighter.GetName()}'s health: {getFighter.GetHealth()}");
+            return (getFighter.GetHealth() <= 0);
+        }
     }
 }

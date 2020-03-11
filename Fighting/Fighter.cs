@@ -33,33 +33,15 @@ namespace Fighting
     }
     public class TomFighter : BaseFighter
     {
-        public override int GetMax()
-        {
-            return 20;
-        }
-        public override int GetMin()
-        {
-            return 10;
-        }
-        public override string GetName()
-        {
-            return "Tom";
-        }
+        public override int GetMax() => 20;
+        public override int GetMin() => 10;
+        public override string GetName() => "Tom";
     }
 
     public class FredFighter : BaseFighter
     {
-        public override int GetMax()
-        {
-            return 21;
-        }
-        public override int GetMin()
-        {
-            return 8;
-        }
-        public override string GetName()
-        {
-            return "Fred";
-        }
+        public override int GetMax() => 21;
+        public override int GetMin() => 8;
+        public override string GetName() => "Fred";
     }
 }
